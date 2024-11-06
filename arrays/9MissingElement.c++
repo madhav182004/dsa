@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
+
 int missingNumber(vector<int>& nums) {
     sort(nums.begin(), nums.end());
     int s=0;

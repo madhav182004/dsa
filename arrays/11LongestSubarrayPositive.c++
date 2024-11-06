@@ -2,7 +2,6 @@
 #include<vector>
 using namespace std;
 
-//two pointer
 int getLongestArrayPositive(vector<int> &a, int n, int k)
 {
     int l=0,r=0;
