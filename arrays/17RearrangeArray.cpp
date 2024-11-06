@@ -17,20 +17,9 @@ vector<int> rearrangeArray(vector<int>& nums)
             neg.push_back(nums[i]);
         }
     }
-    int posUpdate=0;
-    int negUpdate=0;
-    for(int i=0;i<nums.size();i++)
-    {
-        if(i%2 == 0)
-        {
-            nums[i]=pos[posUpdate];
-            posUpdate++;
-        }
-        else
-        {
-            nums[i]=neg[negUpdate];
-            negUpdate++;
-        }
+    for(int i=0;i< nums.size()/2;i++){
+        nums[2*i] = pos[i];
+        nums[2*i+1] = neg[i];
     }
     return nums;
 }
