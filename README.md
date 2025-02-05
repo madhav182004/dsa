@@ -12,8 +12,9 @@ The repository is organized into folders based on different data structures, alg
 ```
 📦 dsa
 ├── arrays/
-├── recursion/
 ├── BinarySearch/
+├── DnC & Backtracking/
+├── Recursion/
 └── Strings/
 ```
 
