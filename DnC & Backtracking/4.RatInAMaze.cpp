@@ -64,7 +64,7 @@ void printAllPath(int maze[][4], int row, int col, int srcx, int srcy, string& o
     if(isSafe(newx, newy, row, col, maze, visited))
     {
         visited[newx][newy]=true;
-        output.push_back('U');
+        output.push_back('L');
         printAllPath(maze, row, col, newx, newy, output, visited);
         output.pop_back();
         visited[newx][newy]=false;
