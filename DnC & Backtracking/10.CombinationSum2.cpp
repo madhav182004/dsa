@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 
-void combinationSum(vector<int>& candidates, int target, vector<int>& v, vector<vector<int> >& ans, int index)
+void combinationSum2(vector<int>& candidates, int target, vector<int>& v, vector<vector<int> >& ans, int index)
 {
     if(target == 0)
     {
@@ -15,8 +15,13 @@ void combinationSum(vector<int>& candidates, int target, vector<int>& v, vector<
     }
     for(int i = index;i<candidates.size();i++)
     {
+        //for no duplicate entries
+        if(i > index && candidates[i] == candidates [i-1])
+        {
+            continue;
+        }
         v.push_back(candidates[i]);
-        combinationSum(candidates, target - candidates[i], v, ans, i);//so that single candidate can be used multiple times
+        combinationSum2(candidates, target - candidates[i], v, ans, i+1); //so that each candidate is only used once
         v.pop_back();
     }
 }
@@ -36,7 +41,8 @@ int main(){
     cin>>target;
     vector<int> v;
     vector<vector<int> > ans;
-    combinationSum(candidates, target, v, ans, 0);
+    sort(candidates.begin(), candidates.end()); //sort to avoid duplicates
+    combinationSum2(candidates, target, v, ans, 0);
     for(int i = 0;i<ans.size();i++)
     {
         for(int j = 0;j<ans[i].size();j++)
