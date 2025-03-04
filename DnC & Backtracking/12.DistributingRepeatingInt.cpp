@@ -18,7 +18,7 @@ bool canDistribute(vector<int>& counts, vector<int>& quantity, int ithCustomer)
             {
                 return true;
             }
-            counts[i] += quantity[ithCustomer];
+            counts[i] += quantity[ithCustomer]; //backtracking
         }
     }
     return false;
@@ -46,7 +46,7 @@ int main(){
         quantity.push_back(a);
     }
     cout<<endl;
-
+    
     unordered_map<int, int> countMap;
     for(auto num:nums)
     {
@@ -57,7 +57,7 @@ int main(){
     {
         counts.push_back(j.second);
     }
-
+    sort(quantity.rbegin(), quantity.rend()); //to imporve time complexity and handle TLE(return false easily)
     bool ans = canDistribute(counts, quantity, 0);
     
     cout<<"Output: "<<ans<<endl;
