@@ -14,6 +14,7 @@ The repository is organized into folders based on different data structures, alg
 ├── arrays/
 ├── BinarySearch/
 ├── DnC & Backtracking/
+├── Dynamic Programming/
 ├── Recursion/
 └── Strings/
 ```
