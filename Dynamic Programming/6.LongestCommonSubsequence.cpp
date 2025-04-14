@@ -76,21 +76,42 @@ using namespace std;
     //     }
     //     return dp[0][0];
     // }
-int solveUsingTabulationSO(string& a, string& b)
+// int solveUsingTabulationSO(string& a, string& b)
+// {
+//     vector<int> curr(a.length()+1, 0); //column wise
+//     vector<int> next(a.length()+1, 0);
+//     for(int j = b.length()-1;j>=0;j--)
+//     {
+//         for(int i = a.length()-1;i>=0;i--)
+//         {
+//             if(a[i] == b[j])
+//             {
+//                 curr[i] = 1 + next[i+1];
+//         }
+//             else
+//             {
+//                 curr[i] = 0 + max(next[i], curr[i+1]);
+//             }
+//         }
+//         next = curr;
+//     }
+//     return next[0];
+// }
+int solveUsingTabulationSOwithoutLoopReverse(string& a, string& b)
 {
-    vector<int> curr(a.length()+1, 0);
-    vector<int> next(a.length()+1, 0);
-    for(int j = b.length()-1;j>=0;j--)
+    vector<int> curr(b.length()+1, 0); //row wise
+    vector<int> next(b.length()+1, 0);
+    for(int i = a.length()-1;i>=0;i--)
     {
-        for(int i = a.length()-1;i>=0;i--)
+        for(int j = b.length()-1;j>=0;j--)
         {
             if(a[i] == b[j])
             {
-                curr[i] = 1 + next[i+1];
+                curr[j] = 1 + next[j+1];
         }
             else
             {
-                curr[i] = 0 + max(next[i], curr[i+1]);
+                curr[j] = 0 + max(next[j], curr[j+1]);
             }
         }
         next = curr;
@@ -104,7 +125,7 @@ int main()
     getline(cin, a);
     cout << "Enter str2 : ";
     getline(cin, b);
-    int ans = solveUsingTabulationSO(a, b);
+    int ans = solveUsingTabulationSOwithoutLoopReverse(a, b);
     cout<<"The longest common subsequence is :" << ans;
     return 0;
 }
