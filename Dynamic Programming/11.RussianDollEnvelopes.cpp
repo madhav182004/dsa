@@ -36,7 +36,7 @@ using namespace std;
 static bool comp(vector<int>& a, vector<int>& b){
     if(a[0] == b[0])
     {
-        return a[1] < b[1];
+        return a[1] > b[1];
     }
     return a[0] < b[0];
 }
@@ -58,15 +58,15 @@ int solveUsingBinarySearch(vector<vector<int>>& nums)
         }
         else
         {
-        int index = lower_bound(ans.begin(), ans.end(), nums[i][1]) - ans.begin();
-        //replace
+            int index = lower_bound(ans.begin(), ans.end(), nums[i][1]) - ans.begin();
+            //replace
             ans[index] = nums[i][1];
         }
     }
     return ans.size();
 }
 int maxEnvelopes(vector<vector<int>>& envelopes) {
-    sort(envelopes.begin(), envelopes.end());
+    // sort(envelopes.begin(), envelopes.end());
     int ans = solveUsingBinarySearch(envelopes);
     return ans;
 }
