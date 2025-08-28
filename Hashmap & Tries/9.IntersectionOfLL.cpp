@@ -33,35 +33,35 @@ void printList(Node* head)
     }
     cout << endl;
 }
-struct Node* makeUnion(struct Node* head1, struct Node* head2) {
-    map<int, int> mapping;
-    Node* temp = head1;
-    while (temp != NULL)
+Node* findIntersection(Node* head1, Node* head2)
+{
+    unordered_map<int, int> mapping;
+     Node* temp = head2;
+    while(temp!=NULL)
     {
         mapping[temp->data]++;
         temp = temp->next;
     }
-    temp = head2;
-    while (temp != NULL)
-    {
-        mapping[temp->data]++;
-        temp = temp->next;
-    }
+    temp = head1;
     Node* newHead = NULL;
     Node* tail = NULL;
-    for (auto& i : mapping)
+    while(temp!=NULL)
     {
-        Node* newNode = new Node(i.first);
-        if (newHead == NULL)
+        if(mapping.find(temp->data) != mapping.end() && mapping[temp->data] > 0)
         {
-            newHead = newNode;
-            tail = newNode;
+            Node* newNode = new Node(temp->data);
+            if(newHead == NULL)
+            {
+                newHead = newNode;
+                tail = newNode;
+            }
+            else
+            {
+                tail->next = newNode;
+                tail = newNode;
+            }
         }
-        else
-        {
-            tail->next = newNode;
-            tail = newNode;
-        }
+        temp = temp->next;
     }
     return newHead;
 }
@@ -85,10 +85,10 @@ int main() {
     cout << "List 2: ";
     printList(head2);
 
-    Node* unionList = makeUnion(head1, head2);
+    Node* intersectionList = findIntersection(head1, head2);
 
-    cout << "Union: ";
-    printList(unionList);
+    cout << "Intersection: ";
+    printList(intersectionList);
 
     return 0;
 }
