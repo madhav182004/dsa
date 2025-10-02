@@ -20,7 +20,8 @@ The repository is organized into folders based on different data structures, alg
 ├── Hashmap & Tries/
 ├── Heaps/
 ├── Recursion/
-└── Strings/
+├── Strings/
+└── GFG/
 ```
 
 Each folder contains solutions to problems categorized by their type, making it easy to navigate and focus on specific topics.
