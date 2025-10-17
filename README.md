@@ -11,6 +11,7 @@ The repository is organized into folders based on different data structures, alg
 
 ```
 📦 dsa
+├── Algo's and Techniques(bonus)/
 ├── arrays/
 ├── Binary Search/
 ├── Binary Search Tree/
