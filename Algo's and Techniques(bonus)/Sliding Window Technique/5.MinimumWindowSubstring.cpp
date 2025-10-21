@@ -31,12 +31,9 @@ string minWindow(string& s, string& t)
         }
         if(count == len2)
         {
-            while(sMap[s[start]] > tMap[s[start]] || tMap[s[start]] == 0)
+            while(sMap[s[start]] > tMap[s[start]])
             {
-                if(sMap[s[start]] > tMap[s[start]])
-                {
-                    sMap[s[start]]--;
-                }
+                sMap[s[start]]--;
                 start++;
             }
             int windowLen = i-start+1;
