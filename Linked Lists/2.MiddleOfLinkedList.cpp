@@ -12,27 +12,42 @@ class ListNode
         ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
-int getLength(ListNode* head)
-{
-    int len = 0;
-    while(head != NULL)
-    {
-        len++;
-        head = head->next;
-    }
-    return len;
-}
+// int getLength(ListNode* head)
+// {
+//     int len = 0;
+//     while(head != NULL)
+//     {
+//         len++;
+//         head = head->next;
+//     }
+//     return len;
+// }
 
+// ListNode* middleNode(ListNode* head)
+// {
+//     int n = getLength(head);
+//     int position = (n/2)+1;
+//     while(position != 1)
+//     {
+//         head = head->next;
+//         position--;
+//     }
+//     return head;
+// }
 ListNode* middleNode(ListNode* head)
 {
-    int n = getLength(head);
-    int position = (n/2)+1;
-    while(position != 1)
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while(fast!=NULL)
     {
-        head = head->next;
-        position--;
+        fast = fast->next;
+        if(fast!=NULL)
+        {
+            fast = fast->next;
+            slow = slow->next;
+        }
     }
-    return head;
+    return slow;
 }
 
 void printList(ListNode* head)
