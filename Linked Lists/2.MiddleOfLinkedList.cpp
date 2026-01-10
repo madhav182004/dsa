@@ -12,19 +12,27 @@ class ListNode
         ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
-ListNode* reverseList(ListNode* head)
+int getLength(ListNode* head)
 {
-    ListNode* prev = nullptr;
-    ListNode* curr = head;
-
-    while(curr != nullptr)
+    int len = 0;
+    while(head != NULL)
     {
-        ListNode* nextNode = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = nextNode;
+        len++;
+        head = head->next;
     }
-    return prev;
+    return len;
+}
+
+ListNode* middleNode(ListNode* head)
+{
+    int n = getLength(head);
+    int position = (n/2)+1;
+    while(position != 1)
+    {
+        head = head->next;
+        position--;
+    }
+    return head;
 }
 
 void printList(ListNode* head)
@@ -48,9 +56,9 @@ int main() {
     cout << "Original List: ";
     printList(head);
 
-    head = reverseList(head);
+    head = middleNode(head);
 
-    cout << "Reversed List: ";
+    cout << "Middle List: ";
     printList(head);
 
     return 0;
