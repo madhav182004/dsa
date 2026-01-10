@@ -31,14 +31,10 @@ ListNode* middleNode(ListNode* head)
 {
     ListNode* slow = head;
     ListNode* fast = head;
-    while(fast!=NULL)
+    while (fast != NULL && fast->next != NULL)
     {
-        fast = fast->next;
-        if(fast!=NULL)
-        {
-            fast = fast->next;
-            slow = slow->next;
-        }
+        slow = slow->next;
+        fast = fast->next->next;
     }
     return slow;
 }
@@ -82,9 +78,7 @@ int main() {
     printList(head);
     
     ListNode* midNode = middleNode(head);
-    ListNode* head2 = midNode->next;
-    midNode->next = NULL;
-    head2 = reverseList(head2);
+    ListNode* head2 = reverseList(midNode);
 
     if(compareLists(head, head2))
     {
