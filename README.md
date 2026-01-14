@@ -20,6 +20,7 @@ The repository is organized into folders based on different data structures, alg
 ├── Graphs/
 ├── Hashmap & Tries/
 ├── Heaps/
+├── Linked Lists/
 ├── Recursion/
 ├── Strings/
 └── GFG/
